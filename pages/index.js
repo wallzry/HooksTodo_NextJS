@@ -1,65 +1,79 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
+import TodoList from '../components/TodoList'
+import TodoForm from '../components/TodoForm'
+import Typography from '@material-ui/core/Typography'
+import Paper from '@material-ui/core/Paper'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Grid from '@material-ui/core/Grid'
+import { v4 as uuidv4 } from 'uuid'
 
-export default function Home() {
+const index = () => {
+  const initialTodos = []
+
+  const [todos, setTodos] = useState(initialTodos)
+
+  useEffect(() => {
+    const todos = window.localStorage.getItem('todos')
+    if (todos) {
+      setTodos(JSON.parse(todos))
+    }
+  }, [])
+
+  useEffect(() => {
+    window.localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+
+  const addTodo = (newTodoText) => {
+    setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }])
+  }
+  const removeTodo = (todoId) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== todoId)
+    setTodos(updatedTodos)
+  }
+  const toggleTodo = (todoId) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+    )
+    setTodos(updatedTodos)
+  }
+  const editTodo = (todoId, newTask) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, task: newTask } : todo
+    )
+    setTodos(updatedTodos)
+  }
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <Paper
+      style={{
+        padding: 0,
+        margin: 0,
+        height: '100vh',
+        backgroundColor: '#fafafa',
+      }}
+    >
+      <AppBar color="primary" position="static" style={{ height: '64px' }}>
+        <Toolbar>
+          <Typography color="inherit">TODOS WITH HOOKS</Typography>
+        </Toolbar>
+      </AppBar>
+      <Grid
+        container
+        justify="center"
+        direction="column"
+        style={{ marginTop: '1rem' }}
+      >
+        <Grid item xs={1} md={1} lg={1}></Grid>
+        <TodoForm addTodo={addTodo} />
+        <TodoList
+          todos={todos}
+          removeTodo={removeTodo}
+          toggleTodo={toggleTodo}
+          editTodo={editTodo}
+        />
+      </Grid>
+    </Paper>
   )
 }
+
+export default index
