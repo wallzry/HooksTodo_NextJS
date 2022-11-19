@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
-import TodoList from '../components/TodoList'
-import TodoForm from '../components/TodoForm'
-import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Grid from '@material-ui/core/Grid'
-import { v4 as uuidv4 } from 'uuid'
+import { useEffect, useState } from "react"
+import TodoList from "../components/TodoList"
+import TodoForm from "../components/TodoForm"
+import Typography from "@material-ui/core/Typography"
+import Paper from "@material-ui/core/Paper"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import Grid from "@material-ui/core/Grid"
+import { v4 as uuidv4 } from "uuid"
 
 const index = () => {
   const initialTodos = []
@@ -14,14 +14,14 @@ const index = () => {
   const [todos, setTodos] = useState(initialTodos)
 
   useEffect(() => {
-    const todos = window.localStorage.getItem('todos')
+    const todos = window.localStorage.getItem("todos")
     if (todos) {
       setTodos(JSON.parse(todos))
     }
   }, [])
 
   useEffect(() => {
-    window.localStorage.setItem('todos', JSON.stringify(todos))
+    window.localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
 
   const addTodo = (newTodoText) => {
@@ -48,20 +48,18 @@ const index = () => {
       style={{
         padding: 0,
         margin: 0,
-        height: '100vh',
-        backgroundColor: '#fafafa',
+        height: "100vh",
+        backgroundColor: "#fafafa",
       }}
     >
-      <AppBar color="primary" position="static" style={{ height: '64px' }}>
-        <Toolbar>
-          <Typography color="inherit">TODOS WITH HOOKS</Typography>
-        </Toolbar>
-      </AppBar>
+      <div className="bg-main">
+        <p>Super Simple Todo App</p>
+      </div>
       <Grid
         container
         justify="center"
         direction="column"
-        style={{ marginTop: '1rem' }}
+        style={{ marginTop: "1rem" }}
       >
         <Grid item xs={1} md={1} lg={1}></Grid>
         <TodoForm addTodo={addTodo} />

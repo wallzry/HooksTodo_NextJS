@@ -1,5 +1,39 @@
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Inter;
+    /* font-weight: 400; */
+    src: url(../fonts/Inter-Var.ttf);
+  }
+  @font-face {
+    font-family: Italiana;
+    font-weight: 400;
+    src: url(../fonts/Italiana-Regular.ttf);
+  }
+  @font-face {
+    font-family: Prata;
+    font-weight: 400;
+    src: url(../fonts/Prata-Regular.ttf);
+  }
+}
+
+/* removes the ugly blue box around the cursor, which gets set by tailwind/forms plugin */
+input[type="text"]:focus {
+  box-shadow: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* grayscale antialiasing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+}
