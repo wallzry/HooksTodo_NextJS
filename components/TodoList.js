@@ -1,14 +1,11 @@
-import Paper from '@material-ui/core/Paper'
-import List from '@material-ui/core/List'
-import { v4 as uuidv4 } from 'uuid'
-import Divider from '@material-ui/core/Divider'
-import Todo from '../components/Todo'
+import { v4 as uuidv4 } from "uuid"
+import Todo from "../components/Todo"
 
 const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
   if (todos.length)
     return (
-      <Paper>
-        <List>
+      <div>
+        <div>
           {todos.map((todo, i) => (
             <div key={uuidv4()}>
               <Todo
@@ -20,11 +17,13 @@ const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
                 toggleTodo={toggleTodo}
                 editTodo={editTodo}
               />
-              {i < todos.length - 1 && <Divider />}
+              {i < todos.length - 1 && (
+                <div className="w-full border-b-2 border-red-700"></div>
+              )}
             </div>
           ))}
-        </List>
-      </Paper>
+        </div>
+      </div>
     )
   return null
 }

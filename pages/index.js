@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react"
 import TodoList from "../components/TodoList"
 import TodoForm from "../components/TodoForm"
-import Typography from "@material-ui/core/Typography"
-import Paper from "@material-ui/core/Paper"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Grid from "@material-ui/core/Grid"
 import { v4 as uuidv4 } from "uuid"
 
 const index = () => {
@@ -44,7 +39,7 @@ const index = () => {
     setTodos(updatedTodos)
   }
   return (
-    <Paper
+    <div
       style={{
         padding: 0,
         margin: 0,
@@ -55,13 +50,7 @@ const index = () => {
       <div className="bg-main">
         <p>Super Simple Todo App</p>
       </div>
-      <Grid
-        container
-        justify="center"
-        direction="column"
-        style={{ marginTop: "1rem" }}
-      >
-        <Grid item xs={1} md={1} lg={1}></Grid>
+      <div className="flex flex-col justify-center mt-3">
         <TodoForm addTodo={addTodo} />
         <TodoList
           todos={todos}
@@ -69,8 +58,8 @@ const index = () => {
           toggleTodo={toggleTodo}
           editTodo={editTodo}
         />
-      </Grid>
-    </Paper>
+      </div>
+    </div>
   )
 }
 

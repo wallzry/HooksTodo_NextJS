@@ -1,5 +1,4 @@
-import TextField from '@material-ui/core/TextField'
-import useInputState from './../hooks/useInputState'
+import useInputState from "./../hooks/useInputState"
 
 const EditTodoForm = ({ id, task, editTodo, toggleIsEditing }) => {
   const [value, handleChange, reset] = useInputState(task)
@@ -11,13 +10,13 @@ const EditTodoForm = ({ id, task, editTodo, toggleIsEditing }) => {
         reset()
         toggleIsEditing()
       }}
-      style={{ marginLeft: '1rem', width: '50%' }}
+      style={{ marginLeft: "1rem", width: "50%" }}
     >
-      <TextField
-        margin="normal"
+      <input
+        type="text"
+        className="w-full border border-black p-2"
         value={value}
         onChange={handleChange}
-        fullWidth
         autoFocus
       />
     </form>
