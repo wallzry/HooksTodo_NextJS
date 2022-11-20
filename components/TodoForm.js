@@ -4,7 +4,7 @@ import { AiOutlineEnter } from "react-icons/ai"
 const TodoForm = ({ addTodo }) => {
   const [value, handleChange, reset] = useInputState("")
   return (
-    <div className="relative bg-orange-600">
+    <div className="relative w-full">
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -13,7 +13,7 @@ const TodoForm = ({ addTodo }) => {
         }}
       >
         <input
-          className="w-full border border-black p-2"
+          className="w-full border rounded uppercase text-xs border-gray-200 p-2"
           type="text"
           value={value}
           onChange={handleChange}

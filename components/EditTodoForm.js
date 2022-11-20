@@ -1,7 +1,16 @@
+import { useEffect, useRef } from "react"
 import useInputState from "./../hooks/useInputState"
 
 const EditTodoForm = ({ id, task, editTodo, toggleIsEditing }) => {
   const [value, handleChange, reset] = useInputState(task)
+
+  const todoInput = useRef(null)
+
+  useEffect(() => {
+    if (emailInput.current) {
+      todoInput.current.focus()
+    }
+  }, [])
   return (
     <form
       onSubmit={(e) => {
@@ -17,7 +26,7 @@ const EditTodoForm = ({ id, task, editTodo, toggleIsEditing }) => {
         className="w-full border border-black p-2"
         value={value}
         onChange={handleChange}
-        autoFocus
+        ref={emailInput}
       />
     </form>
   )

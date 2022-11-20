@@ -4,7 +4,7 @@ import Todo from "../components/Todo"
 const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
   if (todos.length)
     return (
-      <div>
+      <div className="w-full">
         <div>
           {todos.map((todo, i) => (
             <div key={uuidv4()}>

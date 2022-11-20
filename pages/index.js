@@ -41,14 +41,7 @@ const index = () => {
     setTodos(updatedTodos)
   }
   return (
-    <div
-      style={{
-        padding: 0,
-        margin: 0,
-        height: "100vh",
-        backgroundColor: "#fafafa",
-      }}
-    >
+    <div className="p-0 m-0 min-h-screen bg-gray-50">
       <Head>
         <title>SILASF Todo App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -72,11 +65,12 @@ const index = () => {
           <AiOutlineOrderedList className="text-4xl shrink-0 grow-0 text-white" />
         </div>
         <p className="text-main text-center text-xxs">Todo App</p>
-        <p className="mb-8 text-xxs text-gray-400 italic text-center">
-          No registration. No installation. No data collected. Enjoy Simplicity.
+        <p className="mb-8 text-xxs text-gray-400 capitalize italic text-center">
+          No registration. No installation. No data collection. Enjoy
+          Simplicity.
         </p>
       </div>
-      <div className="flex max-w-screen-md mx-auto flex-col justify-center mt-3">
+      <div className="flex max-w-screen-md w-11/12 mx-auto flex-col justify-center mt-3">
         <TodoForm addTodo={addTodo} />
         <TodoList
           todos={todos}
