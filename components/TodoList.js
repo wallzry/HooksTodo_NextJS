@@ -18,7 +18,7 @@ const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
                 editTodo={editTodo}
               />
               {i < todos.length - 1 && (
-                <div className="w-full border-b-2 border-red-700"></div>
+                <div className="w-full border-b border-gray-200"></div>
               )}
             </div>
           ))}

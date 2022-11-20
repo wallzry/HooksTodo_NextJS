@@ -14,24 +14,30 @@ const Todo = ({ id, task, completed, removeTodo, toggleTodo, editTodo }) => {
           toggleIsEditing={toggleIsEditing}
         />
       ) : (
-        <>
-          <input
-            type="checkbox"
-            checked={completed}
-            onClick={() => toggleTodo(id)}
-          />
-          <p style={{ textDecoration: completed ? "line-through" : "none" }}>
-            {task}
-          </p>
-          <div className="flex items-center">
-            <div onClick={() => removeTodo(id)}>
-              <AiFillDelete />
-            </div>
+        <div className="w-full flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              className="accent-main"
+              checked={completed}
+              onClick={() => toggleTodo(id)}
+            />
+            <p
+              className="max-w-screen-sm"
+              style={{ textDecoration: completed ? "line-through" : "none" }}
+            >
+              {task}
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
             <div onClick={toggleIsEditing}>
               <AiFillEdit />
             </div>
+            <div onClick={() => removeTodo(id)}>
+              <AiFillDelete />
+            </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   )

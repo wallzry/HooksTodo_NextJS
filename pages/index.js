@@ -54,25 +54,29 @@ const index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-main h-16 w-full relative">
-        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white h-12 flex flex-col">
+        <a
+          href="https://silasf.com"
+          target="_blank"
+          className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white h-12 flex flex-col"
+        >
           <h1 className="text-main px-1 text-3xl w-full text-center">SILASF</h1>
           <div className="bg-main h-4 w-full flex items-center justify-center">
             <p className="text-white w-full text-center text-xxs">
               Digital Business Experts
             </p>
           </div>
-        </div>
+        </a>
       </div>
       <div className="mt-12">
         <div className="text-2xl mx-auto text-center h-12 w-12 rounded bg-main flex justify-center items-center">
           <AiOutlineOrderedList className="text-4xl shrink-0 grow-0 text-white" />
-          {/* <p className="text-white">Todo</p> */}
         </div>
-        <p className="text-sm text-gray-400 italic text-center">
+        <p className="text-main text-center text-xxs">Todo App</p>
+        <p className="mb-8 text-xxs text-gray-400 italic text-center">
           No registration. No installation. No data collected. Enjoy Simplicity.
         </p>
       </div>
-      <div className="flex flex-col justify-center mt-3">
+      <div className="flex max-w-screen-md mx-auto flex-col justify-center mt-3">
         <TodoForm addTodo={addTodo} />
         <TodoList
           todos={todos}
