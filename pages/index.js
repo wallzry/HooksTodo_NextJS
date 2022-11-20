@@ -45,6 +45,10 @@ const index = () => {
       <Head>
         <title>SILASF Todo App</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        ></meta>
       </Head>
       <div className="bg-main h-16 w-full relative">
         <a
