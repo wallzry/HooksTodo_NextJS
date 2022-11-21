@@ -13,7 +13,7 @@ const TodoForm = ({ addTodo }) => {
         }}
       >
         <input
-          className="w-full border rounded uppercase text-xs border-gray-200 p-2"
+          className="w-full border rounded uppercase text-sm border-gray-200 p-2"
           type="text"
           value={value}
           onChange={handleChange}

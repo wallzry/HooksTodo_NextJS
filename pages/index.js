@@ -110,6 +110,17 @@ const index = () => {
             solutions for any specific needs.
           </p>
         </div>
+        <div className="flex items-center justify-center gap-2 text-xs mt-2">
+          <a href="https://silasf.com/legal" target="_blank">
+            Legal{" "}
+          </a>
+          <a href="https://silasf.com/privacy" target="_blank">
+            Privacy
+          </a>
+          <a href="https://silasf.com/terms" target="_blank">
+            Terms
+          </a>
+        </div>
         <p className="mt-4 text-xxs text-center">© SILASF {currentYear}</p>
         <p className="mt-2 text-xxs text-center text-gray-500 italic font-thin">
           The best way to predict the future is to create it.

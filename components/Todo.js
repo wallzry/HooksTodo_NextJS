@@ -14,16 +14,16 @@ const Todo = ({ id, task, completed, removeTodo, toggleTodo, editTodo }) => {
           toggleIsEditing={toggleIsEditing}
         />
       ) : (
-        <div className="w-full  flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           <div className="flex h-auto items-center gap-2">
             <input
               type="checkbox"
-              className="accent-main h-8 w-8 cursor-pointer shrink-0 grow-0 border-0 border-gray-200"
+              className="accent-main h-6 w-6 cursor-pointer shrink-0 grow-0 border-0 border-gray-200"
               defaultChecked={completed}
               onClick={() => toggleTodo(id)}
             />
             <p
-              className={`max-w-screen-sm text-xs uppercase break-words ${
+              className={`max-w-screen-sm text-sm uppercase break-words ${
                 completed ? "line-through text-main" : "no-underline text-black"
               }`}
             >
