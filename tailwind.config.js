@@ -13,7 +13,8 @@ module.exports = {
       },
       colors: {
         // main: "#FB3640",
-        main: "#ff0034",
+        red: "#ff0034",
+        main: "#1E1E1E",
       },
       fontSize: {
         xxs: "0.5rem",
